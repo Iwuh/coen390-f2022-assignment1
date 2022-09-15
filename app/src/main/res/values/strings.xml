@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Assignment1</string>
+    <string name="settings">Settings</string>
+    <string name="eventA">Event A</string>
+    <string name="eventB">Event B</string>
+    <string name="eventC">Event C</string>
+    <string name="showcounts">Show My Counts</string>
 </resources>
