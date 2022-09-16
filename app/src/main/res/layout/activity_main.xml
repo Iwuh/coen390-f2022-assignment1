@@ -13,7 +13,7 @@
         android:layout_marginTop="44dp"
         android:text="@string/settings"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,21 +25,11 @@
         android:text="@string/showcounts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewTotalCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
-        android:text="Total Count"
-        app:layout_constraintBottom_toTopOf="@+id/buttonShowCounts"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayoutEventButtons"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="75dp"
@@ -90,5 +80,14 @@
             android:layout_weight="0"
             android:text="@string/eventC" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewTotalCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonShowCounts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
