@@ -10,7 +10,7 @@
         android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,10 +19,112 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="25dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/buttonSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewCounter1Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/counter1_name_label"
+            android:textSize="22sp"
+            android:translationX="10dp" />
+
+        <EditText
+            android:id="@+id/editTextCounter1Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/counter1_name_label"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/textViewCounter2Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/counter2_name_label"
+            android:textSize="22sp"
+            android:translationX="10dp" />
+
+        <EditText
+            android:id="@+id/editTextCounter2Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/counter2_name_label"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
+
+        <View
+            android:id="@+id/divider4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/textViewCounter3Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/counter3_name_label"
+            android:textSize="22sp"
+            android:translationX="10dp" />
+
+        <EditText
+            android:id="@+id/editTextCounter3Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/counter3_name_label"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <TextView
+            android:id="@+id/textViewMaxCounts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/maximum_counts_label"
+            android:textSize="22sp"
+            android:translationX="10dp" />
+
+        <EditText
+            android:id="@+id/editTextMaxCounts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/maximum_counts_label"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
