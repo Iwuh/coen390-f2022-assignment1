@@ -4,6 +4,8 @@
     <string name="eventA">Event A</string>
     <string name="eventB">Event B</string>
     <string name="eventC">Event C</string>
-    <string name="showcounts">Show My Counts</string>
-    <string name="totalcountlabel">Total Count:\u0020</string>
+    <string name="show_counts">Show My Counts</string>
+    <string name="total_count_label">Total Count:\u0020</string>
+    <string name="settings_activity_title">Settings Activity</string>
+    <string name="save">Save</string>
 </resources>

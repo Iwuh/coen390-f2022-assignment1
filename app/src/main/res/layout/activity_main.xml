@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="84dp"
-        android:text="@string/showcounts"
+        android:text="@string/show_counts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="125dp"
         android:layout_marginBottom="45dp"
-        android:text="@string/totalcountlabel"
+        android:text="@string/total_count_label"
         app:layout_constraintBottom_toTopOf="@+id/buttonShowCounts"
         app:layout_constraintStart_toStartOf="parent" />
 
