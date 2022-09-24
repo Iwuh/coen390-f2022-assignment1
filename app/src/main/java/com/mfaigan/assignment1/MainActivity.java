@@ -2,7 +2,9 @@ package com.mfaigan.assignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,5 +18,17 @@ public class MainActivity extends AppCompatActivity {
 
         TextView totalCountDisplay =  findViewById(R.id.textViewTotalCountValue);
         totalCountDisplay.setText(Integer.toString(totalCount));
+
+        findViewById(R.id.buttonSettings).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToSettings();
+            }
+        });
+    }
+
+    private void goToSettings() {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 }
