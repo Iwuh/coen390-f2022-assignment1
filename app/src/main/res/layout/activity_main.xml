@@ -43,12 +43,12 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonSettings">
 
         <Button
-            android:id="@+id/buttonEventA"
+            android:id="@+id/buttonCounter1"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_weight="0"
-            android:text="@string/eventA" />
+            android:text="@string/default_counter1" />
 
         <View
             android:id="@+id/divider2"
@@ -58,12 +58,12 @@
             android:background="@color/white" />
 
         <Button
-            android:id="@+id/buttonEventB"
+            android:id="@+id/buttonCounter2"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_weight="0"
-            android:text="@string/eventB" />
+            android:text="@string/default_counter2" />
 
         <View
             android:id="@+id/divider3"
@@ -73,12 +73,12 @@
             android:background="@color/white" />
 
         <Button
-            android:id="@+id/buttonEventC"
+            android:id="@+id/buttonCounter3"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_weight="0"
-            android:text="@string/eventC" />
+            android:text="@string/default_counter3" />
     </LinearLayout>
 
     <TextView
