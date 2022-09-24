@@ -37,7 +37,7 @@
         android:layout_marginEnd="75dp"
         android:layout_marginBottom="50dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/textViewTotalCount"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTotalCountLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSettings">
@@ -82,12 +82,21 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textViewTotalCount"
+        android:id="@+id/textViewTotalCountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginBottom="45dp"
+        android:text="@string/totalcountlabel"
+        app:layout_constraintBottom_toTopOf="@+id/buttonShowCounts"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTotalCountValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="45dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonShowCounts"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/textViewTotalCountLabel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

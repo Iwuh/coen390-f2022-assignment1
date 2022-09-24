@@ -5,4 +5,5 @@
     <string name="eventB">Event B</string>
     <string name="eventC">Event C</string>
     <string name="showcounts">Show My Counts</string>
+    <string name="totalcountlabel">Total Count:\u0020</string>
 </resources>

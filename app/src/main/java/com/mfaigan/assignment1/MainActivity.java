@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView totalCountDisplay =  findViewById(R.id.textViewTotalCount);
-        totalCountDisplay.setText(String.format("Total Count: %d", totalCount));
+        TextView totalCountDisplay =  findViewById(R.id.textViewTotalCountValue);
+        totalCountDisplay.setText(Integer.toString(totalCount));
     }
 }
