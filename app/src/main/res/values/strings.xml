@@ -22,4 +22,10 @@
     <string name="counter_preferences_counter1_key">counter1_key</string>
     <string name="counter_preferences_counter2_key">counter2_key</string>
     <string name="counter_preferences_counter3_key">counter3_key</string>
+    <string name="counter_preferences_maximum_counts_key">maximum_counts_key</string>
+
+    <!-- Other -->
+    <string name="counter_name_allowed_chars">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\u0020</string>
+    <string name="error_counter_name_too_long">Counter names must be fewer than 20 characters.</string>
+    <string name="error_maximum_counts_out_of_range">Maximum counts must be between 5 and 200.</string>
 </resources>
