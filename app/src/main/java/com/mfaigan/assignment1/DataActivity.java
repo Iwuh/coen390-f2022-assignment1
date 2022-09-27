@@ -1,6 +1,7 @@
 package com.mfaigan.assignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,8 +34,10 @@ public class DataActivity extends AppCompatActivity {
         recyclerViewCounterHistory = findViewById(R.id.recyclerViewCounterHistory);
         recyclerViewAdapter = new DataRecyclerViewAdapter(counterHelper, counterHelper.getCountHistoryList(), true);
 
-        recyclerViewCounterHistory.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        recyclerViewCounterHistory.setLayoutManager(linearLayoutManager);
         recyclerViewCounterHistory.setAdapter(recyclerViewAdapter);
+        recyclerViewCounterHistory.addItemDecoration(new DividerItemDecoration(recyclerViewCounterHistory.getContext(), linearLayoutManager.getOrientation()));
     }
 
     @Override
