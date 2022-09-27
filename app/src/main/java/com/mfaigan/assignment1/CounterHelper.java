@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -125,6 +126,14 @@ public class CounterHelper {
                     throw new IllegalArgumentException("Unknown counter");
             }
         }).collect(Collectors.toList());
+    }
+
+    public Map<Counter, Long> getGroupedCountHistory()
+    {
+        // The groupingBy collector takes a predicate function to determine equality of list entries,
+        // and a reducer function applied to the list of items that belong to each group.
+        // Combined, we group entries by enum value and then find the number of entries that corresponded to each enum value.
+        return getCountHistoryList().stream().collect(Collectors.groupingBy(c -> c, Collectors.counting()));
     }
 
     /**
