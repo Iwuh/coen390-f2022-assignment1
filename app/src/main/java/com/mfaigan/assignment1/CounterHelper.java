@@ -24,24 +24,29 @@ public class CounterHelper {
         counterPreferences = context.getSharedPreferences(context.getString(R.string.counter_preferences), Context.MODE_PRIVATE);
     }
 
-    // TODO refactor these methods to use the Counter enum
-    public String getCounter1Name()
+    public String getCounterName(Counter counter)
     {
-        return counterPreferences.getString(context.getString(R.string.counter_preferences_counter1_key), null);
-    }
-    public String getCounter2Name()
-    {
-        return counterPreferences.getString(context.getString(R.string.counter_preferences_counter2_key), null);
-    }
-    public String getCounter3Name()
-    {
-        return counterPreferences.getString(context.getString(R.string.counter_preferences_counter3_key), null);
+        int keyId;
+        switch (counter)
+        {
+            case Counter1:
+                keyId = R.string.counter_preferences_counter1_key;
+                break;
+            case Counter2:
+                keyId = R.string.counter_preferences_counter2_key;
+                break;
+            case Counter3:
+                keyId = R.string.counter_preferences_counter3_key;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown counter");
+        }
+        return counterPreferences.getString(context.getString(keyId), null);
     }
     public String[] getAllCounterNames()
     {
-        return new String[]{getCounter1Name(), getCounter2Name(), getCounter3Name()};
+        return new String[]{getCounterName(Counter.Counter1), getCounterName(Counter.Counter2), getCounterName(Counter.Counter3)};
     }
-
     public int getMaximumCounts()
     {
         return counterPreferences.getInt(context.getString(R.string.counter_preferences_maximum_counts_key), 0);
@@ -128,6 +133,11 @@ public class CounterHelper {
         }).collect(Collectors.toList());
     }
 
+
+    /**
+     * Obtains the history of all counter presses since the last reset, grouped by counter number.
+     * @return A map of counter enum values to the quantity of events corresponding to that counter.
+     */
     public Map<Counter, Long> getGroupedCountHistory()
     {
         // The groupingBy collector takes a predicate function to determine equality of list entries,

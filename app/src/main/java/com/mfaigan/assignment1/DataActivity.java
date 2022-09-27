@@ -96,9 +96,21 @@ public class DataActivity extends AppCompatActivity {
         Map<CounterHelper.Counter, Long> groupedCounts = counterHelper.getGroupedCountHistory();
         if (showEventNames)
         {
-            textViewCounter1History.setText(String.format(Locale.ENGLISH,"%s: %d events", counterHelper.getCounter1Name(), groupedCounts.get(CounterHelper.Counter.Counter1)));
-            textViewCounter2History.setText(String.format(Locale.ENGLISH,"%s: %d events", counterHelper.getCounter2Name(), groupedCounts.get(CounterHelper.Counter.Counter2)));
-            textViewCounter3History.setText(String.format(Locale.ENGLISH,"%s: %d events", counterHelper.getCounter3Name(), groupedCounts.get(CounterHelper.Counter.Counter3)));
+            String[] counterNames = counterHelper.getAllCounterNames();
+            textViewCounter1History.setText(String.format(Locale.ENGLISH,
+                    "%s: %d events",
+                    counterNames[0],
+                    groupedCounts.get(CounterHelper.Counter.Counter1)));
+
+            textViewCounter2History.setText(String.format(Locale.ENGLISH,
+                    "%s: %d events",
+                    counterNames[1],
+                    groupedCounts.get(CounterHelper.Counter.Counter2)));
+
+            textViewCounter3History.setText(String.format(Locale.ENGLISH,
+                    "%s: %d events",
+                    counterNames[2],
+                    groupedCounts.get(CounterHelper.Counter.Counter3)));
         }
         else
         {
