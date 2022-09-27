@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class CounterHelper {
     private final SharedPreferences counterPreferences;
@@ -98,6 +100,31 @@ public class CounterHelper {
     {
         // We represent an empty count history using an empty string rather than a null reference.
         return counterPreferences.getString(context.getString(R.string.counter_preferences_count_history_key), "");
+    }
+
+
+    /**
+     * Obtains the ordered history of all counter presses since the last reset.
+     * @return The history as a list of Counter values. Lower indices are older.
+     */
+    public List<Counter> getCountHistoryList()
+    {
+        // Convert the history string to a stream of integer code points.
+        // Cast those to chars, then map each char to one of the counter enum values.
+        // Finally, collect those into a list and return it.
+        return getCountHistory().chars().mapToObj(i -> (char)i).map(c -> {
+            switch (c)
+            {
+                case '1':
+                    return CounterHelper.Counter.Counter1;
+                case '2':
+                    return CounterHelper.Counter.Counter2;
+                case '3':
+                    return CounterHelper.Counter.Counter3;
+                default:
+                    throw new IllegalArgumentException("Unknown counter");
+            }
+        }).collect(Collectors.toList());
     }
 
     /**

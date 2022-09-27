@@ -1,13 +1,23 @@
 package com.mfaigan.assignment1;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class DataActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerViewCounterHistory;
+    private DataRecyclerViewAdapter recyclerViewAdapter;
+    private CounterHelper counterHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +26,25 @@ public class DataActivity extends AppCompatActivity {
 
         setSupportActionBar(findViewById(R.id.toolbarData));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        counterHelper = new CounterHelper(getApplicationContext());
+
+        // Set up the recycler view to use a linear layout with our custom adapter.
+        recyclerViewCounterHistory = findViewById(R.id.recyclerViewCounterHistory);
+        recyclerViewAdapter = new DataRecyclerViewAdapter(counterHelper, counterHelper.getCountHistoryList(), true);
+
+        recyclerViewCounterHistory.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewCounterHistory.setAdapter(recyclerViewAdapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Whenever we re-enter this activity from Main, assume the worst and regenerate the entire RecyclerView data.
+        recyclerViewAdapter.setCounterHistory(counterHelper.getCountHistoryList());
+        recyclerViewAdapter.setShowEventNames(true);
+        recyclerViewAdapter.notifyDataSetChanged();
     }
 
     @Override

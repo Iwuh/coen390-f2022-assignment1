@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayoutEventCounts"
+        android:id="@+id/linearLayoutCounterHistory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -55,13 +55,13 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewEventHistory"
+        android:id="@+id/recyclerViewCounterHistory"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutEventCounts" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCounterHistory" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
