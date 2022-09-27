@@ -36,8 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (validateInputs())
-                {
+                if (validateInputs()) {
                     storeSettings();
                     setEditMode(false);
                 }
@@ -50,12 +49,9 @@ public class SettingsActivity extends AppCompatActivity {
         super.onResume();
 
         CounterHelper controller = new CounterHelper(getApplicationContext());
-        if (controller.areSettingsMissing())
-        {
+        if (controller.areSettingsMissing()) {
             setEditMode(true);
-        }
-        else
-        {
+        } else {
             String[] counterNames = controller.getAllCounterNames();
             editTextCounter1Name.setText(counterNames[0]);
             editTextCounter2Name.setText(counterNames[1]);
@@ -85,18 +81,14 @@ public class SettingsActivity extends AppCompatActivity {
     /**
      * @param onOff Whether edit mode should be enabled (true) or disabled (false).
      */
-    private void setEditMode(boolean onOff)
-    {
-        if (onOff)
-        {
+    private void setEditMode(boolean onOff) {
+        if (onOff) {
             editTextCounter1Name.setEnabled(true);
             editTextCounter2Name.setEnabled(true);
             editTextCounter3Name.setEnabled(true);
             editTextMaximumCounts.setEnabled(true);
             buttonSave.setVisibility(View.VISIBLE);
-        }
-        else
-        {
+        } else {
             editTextCounter1Name.setEnabled(false);
             editTextCounter2Name.setEnabled(false);
             editTextCounter3Name.setEnabled(false);
@@ -107,16 +99,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     /**
      * Validates user input in the counter name and maximum counts EditTexts, and displays a toast in the case of invalid input.
+     *
      * @return True if all four user inputs are valid, otherwise false.
      */
-    private boolean validateInputs()
-    {
+    private boolean validateInputs() {
         // All fields must be non-empty.
         if (editTextCounter1Name.getText().length() == 0 ||
-            editTextCounter2Name.getText().length() == 0 ||
-            editTextCounter3Name.getText().length() == 0 ||
-            editTextMaximumCounts.getText().length() == 0)
-        {
+                editTextCounter2Name.getText().length() == 0 ||
+                editTextCounter3Name.getText().length() == 0 ||
+                editTextMaximumCounts.getText().length() == 0) {
             Toast toast = Toast.makeText(this, R.string.error_field_empty, Toast.LENGTH_LONG);
             toast.show();
             return false;
@@ -125,9 +116,8 @@ public class SettingsActivity extends AppCompatActivity {
         // All counter names should be no more than 20 characters.
         // Only alphabetical and space characters are allowed, this is enforced by the digits XML property.
         if (editTextCounter1Name.getText().length() > 20 ||
-            editTextCounter2Name.getText().length() > 20 ||
-            editTextCounter3Name.getText().length() > 20)
-        {
+                editTextCounter2Name.getText().length() > 20 ||
+                editTextCounter3Name.getText().length() > 20) {
             Toast toast = Toast.makeText(this, R.string.error_counter_name_too_long, Toast.LENGTH_LONG);
             toast.show();
             return false;
@@ -135,8 +125,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         // The maximum counts should be between 5 and 200, inclusive.
         int maxCountsInput = Integer.parseInt(editTextMaximumCounts.getText().toString());
-        if (maxCountsInput < 5 || maxCountsInput > 200)
-        {
+        if (maxCountsInput < 5 || maxCountsInput > 200) {
             Toast toast = Toast.makeText(this, R.string.error_maximum_counts_out_of_range, Toast.LENGTH_LONG);
             toast.show();
             return false;
@@ -148,8 +137,7 @@ public class SettingsActivity extends AppCompatActivity {
     /**
      * Stores the values of the EditText fields using CounterHelper. This function does not perform input validation.
      */
-    private void storeSettings()
-    {
+    private void storeSettings() {
         CounterHelper controller = new CounterHelper(getApplicationContext());
         controller.setCounterName(CounterHelper.Counter.Counter1, editTextCounter1Name.getText().toString());
         controller.setCounterName(CounterHelper.Counter.Counter2, editTextCounter2Name.getText().toString());

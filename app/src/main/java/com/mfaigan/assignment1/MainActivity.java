@@ -66,8 +66,7 @@ public class MainActivity extends AppCompatActivity {
         CounterHelper controller = new CounterHelper(getApplicationContext());
 
         // If any settings are missing when we enter the activity, go to the settings activity instead.
-        if (controller.areSettingsMissing())
-        {
+        if (controller.areSettingsMissing()) {
             goToSettings();
         }
 
@@ -82,8 +81,7 @@ public class MainActivity extends AppCompatActivity {
         totalCountDisplay.setText(Integer.toString(countHistory.length()));
     }
 
-    private void updateCount(CounterHelper.Counter c)
-    {
+    private void updateCount(CounterHelper.Counter c) {
         CounterHelper controller = new CounterHelper(getApplicationContext());
         int newCount = controller.appendToCountHistory(c);
         totalCountDisplay.setText(Integer.toString(newCount));
@@ -94,8 +92,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void goToData()
-    {
+    private void goToData() {
         Intent intent = new Intent(this, DataActivity.class);
         startActivity(intent);
     }

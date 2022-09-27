@@ -75,8 +75,7 @@ public class DataActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_toggle_event_names)
-        {
+        if (item.getItemId() == R.id.action_toggle_event_names) {
             // Toggle the event name display in the adapter and update the entire range.
             recyclerViewAdapter.setShowEventNames(!showEventNames);
             recyclerViewAdapter.notifyItemRangeChanged(0, recyclerViewAdapter.getItemCount());
@@ -88,11 +87,9 @@ public class DataActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void updateTextViews()
-    {
+    private void updateTextViews() {
         Map<CounterHelper.Counter, Long> groupedCounts = counterHelper.getGroupedCountHistory();
-        if (showEventNames)
-        {
+        if (showEventNames) {
             String[] counterNames = counterHelper.getAllCounterNames();
             textViewCounter1History.setText(String.format(Locale.ENGLISH,
                     "%s: %d events",
@@ -108,9 +105,7 @@ public class DataActivity extends AppCompatActivity {
                     "%s: %d events",
                     counterNames[2],
                     groupedCounts.getOrDefault(CounterHelper.Counter.Counter3, 0L)));
-        }
-        else
-        {
+        } else {
             textViewCounter1History.setText(String.format(Locale.ENGLISH,
                     "Counter 1: %d events",
                     groupedCounts.getOrDefault(CounterHelper.Counter.Counter1, 0L)));
@@ -123,6 +118,6 @@ public class DataActivity extends AppCompatActivity {
                     "Counter 3: %d events",
                     groupedCounts.getOrDefault(CounterHelper.Counter.Counter3, 0L)));
         }
-        textViewAllCountersHistory.setText(String.format(Locale.ENGLISH,"Total events: %d", counterHelper.getCountHistory().length()));
+        textViewAllCountersHistory.setText(String.format(Locale.ENGLISH, "Total events: %d", counterHelper.getCountHistory().length()));
     }
 }

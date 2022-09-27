@@ -22,12 +22,9 @@ public class DataRecyclerViewAdapter extends RecyclerView.Adapter<DataRecyclerVi
         }
 
         public void setData(CounterHelper controller, CounterHelper.Counter counter, boolean useEventName) {
-            if (useEventName)
-            {
+            if (useEventName) {
                 textViewDataCounterName.setText(controller.getCounterName(counter));
-            }
-            else
-            {
+            } else {
                 textViewDataCounterName.setText(counter.toString());
             }
         }
@@ -43,12 +40,11 @@ public class DataRecyclerViewAdapter extends RecyclerView.Adapter<DataRecyclerVi
         this.showEventNames = showEventNames;
     }
 
-    public void setCounterHistory(List<CounterHelper.Counter> counterHistory)
-    {
+    public void setCounterHistory(List<CounterHelper.Counter> counterHistory) {
         this.counterHistory = counterHistory;
     }
-    public void setShowEventNames(boolean showEventNames)
-    {
+
+    public void setShowEventNames(boolean showEventNames) {
         this.showEventNames = showEventNames;
     }
 
