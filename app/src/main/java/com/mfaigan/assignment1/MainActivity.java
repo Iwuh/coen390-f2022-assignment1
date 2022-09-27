@@ -12,19 +12,18 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    private int totalCount = 0; // temporary
 
     private Button buttonCounter1;
     private Button buttonCounter2;
     private Button buttonCounter3;
+    private TextView totalCountDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView totalCountDisplay = findViewById(R.id.textViewTotalCountValue);
-        totalCountDisplay.setText(Integer.toString(totalCount));
+        totalCountDisplay = findViewById(R.id.textViewTotalCountValue);
 
         buttonCounter1 = findViewById(R.id.buttonCounter1);
         buttonCounter2 = findViewById(R.id.buttonCounter2);
@@ -34,6 +33,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 goToSettings();
+            }
+        });
+
+        buttonCounter1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateCount(CounterHelper.Counter.Counter1);
+            }
+        });
+        buttonCounter2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateCount(CounterHelper.Counter.Counter2);
+            }
+        });
+        buttonCounter3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateCount(CounterHelper.Counter.Counter3);
             }
         });
     }
@@ -55,6 +73,17 @@ public class MainActivity extends AppCompatActivity {
         buttonCounter1.setText(counterNames[0]);
         buttonCounter2.setText(counterNames[1]);
         buttonCounter3.setText(counterNames[2]);
+
+        // Additionally, set the total count display.
+        String countHistory = controller.getCountHistory();
+        totalCountDisplay.setText(Integer.toString(countHistory.length()));
+    }
+
+    private void updateCount(CounterHelper.Counter c)
+    {
+        CounterHelper controller = new CounterHelper(getApplicationContext());
+        int newCount = controller.appendToCountHistory(c);
+        totalCountDisplay.setText(Integer.toString(newCount));
     }
 
     private void goToSettings() {
