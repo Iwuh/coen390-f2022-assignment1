@@ -138,7 +138,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     /**
-     * Stores the values in the EditText fields using CounterHelper. This function does not perform input validation.
+     * Stores the values of the EditText fields using CounterHelper. This function does not perform input validation.
      */
     private void storeSettings()
     {

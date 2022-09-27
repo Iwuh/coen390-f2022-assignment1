@@ -23,6 +23,7 @@
     <string name="counter_preferences_counter2_key">counter2_key</string>
     <string name="counter_preferences_counter3_key">counter3_key</string>
     <string name="counter_preferences_maximum_counts_key">maximum_counts_key</string>
+    <string name="counter_preferences_count_history_key">count_history_key</string>
 
     <!-- Other -->
     <string name="counter_name_allowed_chars">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\u0020</string>
