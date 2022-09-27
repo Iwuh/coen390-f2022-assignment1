@@ -136,16 +136,6 @@ public class CounterHelper {
     }
 
     /**
-     * Resets the counter history back to an empty string.
-     */
-    public void resetCountHistory()
-    {
-        SharedPreferences.Editor editor = counterPreferences.edit();
-        editor.putString(context.getString(R.string.counter_preferences_count_history_key), "");
-        editor.apply();
-    }
-
-    /**
      * Obtains the ordered history of all counter presses since the last reset.
      * @return The history, in string representation. Each character is either '1', '2', or '3' to represent a counter. Lower indices are older.
      */
