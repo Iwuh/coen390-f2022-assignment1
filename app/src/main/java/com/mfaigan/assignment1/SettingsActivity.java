@@ -112,7 +112,17 @@ public class SettingsActivity extends AppCompatActivity {
      */
     private boolean validateInputs()
     {
-        // TODO: handle empty input
+        // All fields must be non-empty.
+        if (editTextCounter1Name.getText().length() == 0 ||
+            editTextCounter2Name.getText().length() == 0 ||
+            editTextCounter3Name.getText().length() == 0 ||
+            editTextMaximumCounts.getText().length() == 0)
+        {
+            Toast toast = Toast.makeText(this, R.string.error_field_empty, Toast.LENGTH_LONG);
+            toast.show();
+            return false;
+        }
+
         // All counter names should be no more than 20 characters.
         // Only alphabetical and space characters are allowed, this is enforced by the digits XML property.
         if (editTextCounter1Name.getText().length() > 20 ||
@@ -124,7 +134,6 @@ public class SettingsActivity extends AppCompatActivity {
             return false;
         }
 
-        // TODO: handle empty input
         // The maximum counts should be between 5 and 200, inclusive.
         int maxCountsInput = Integer.parseInt(editTextMaximumCounts.getText().toString());
         if (maxCountsInput < 5 || maxCountsInput > 200)

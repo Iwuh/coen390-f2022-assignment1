@@ -29,6 +29,7 @@
 
     <!-- Other -->
     <string name="counter_name_allowed_chars">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\u0020</string>
+    <string name="error_field_empty">Text fields may not be empty.</string>
     <string name="error_counter_name_too_long">Counter names must be fewer than 20 characters.</string>
     <string name="error_maximum_counts_out_of_range">Maximum counts must be between 5 and 200.</string>
 </resources>
