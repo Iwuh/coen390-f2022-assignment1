@@ -35,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
                 goToSettings();
             }
         });
+        findViewById(R.id.buttonShowCounts).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToData();
+            }
+        });
 
         buttonCounter1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToSettings() {
         Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToData()
+    {
+        Intent intent = new Intent(this, DataActivity.class);
         startActivity(intent);
     }
 }
