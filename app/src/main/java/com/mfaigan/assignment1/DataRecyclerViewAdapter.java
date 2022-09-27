@@ -24,37 +24,11 @@ public class DataRecyclerViewAdapter extends RecyclerView.Adapter<DataRecyclerVi
         public void setData(CounterHelper controller, CounterHelper.Counter counter, boolean useEventName) {
             if (useEventName)
             {
-                switch (counter)
-                {
-                    case Counter1:
-                        textViewDataCounterName.setText(controller.getCounterName(CounterHelper.Counter.Counter1));
-                        break;
-                    case Counter2:
-                        textViewDataCounterName.setText(controller.getCounterName(CounterHelper.Counter.Counter2));
-                        break;
-                    case Counter3:
-                        textViewDataCounterName.setText(controller.getCounterName(CounterHelper.Counter.Counter3));
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unknown counter");
-                }
+                textViewDataCounterName.setText(controller.getCounterName(counter));
             }
             else
             {
-                switch (counter)
-                {
-                    case Counter1:
-                        textViewDataCounterName.setText("1");
-                        break;
-                    case Counter2:
-                        textViewDataCounterName.setText("2");
-                        break;
-                    case Counter3:
-                        textViewDataCounterName.setText("3");
-                        break;
-                    default:
-                        throw new IllegalArgumentException("Unknown counter");
-                }
+                textViewDataCounterName.setText(counter.toString());
             }
         }
     }

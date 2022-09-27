@@ -3,6 +3,8 @@ package com.mfaigan.assignment1;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import androidx.annotation.NonNull;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +17,43 @@ public class CounterHelper {
 
     public enum Counter
     {
-        Counter1, Counter2, Counter3
+        Counter1, Counter2, Counter3;
+
+        public static Counter fromString(String s)
+        {
+            switch (s)
+            {
+                case "1":
+                    return Counter1;
+                case "2":
+                    return Counter2;
+                case "3":
+                    return Counter3;
+                default:
+                    throw new IllegalArgumentException("Unknown counter");
+            }
+        }
+
+        public static Counter fromChar(char c)
+        {
+            return fromString(Character.toString(c));
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            switch (this)
+            {
+                case Counter1:
+                    return "1";
+                case Counter2:
+                    return "2";
+                case Counter3:
+                    return "3";
+                default:
+                    throw new IllegalArgumentException("Unknown counter");
+            }
+        }
     }
 
     public CounterHelper(Context ctx)
@@ -24,6 +62,11 @@ public class CounterHelper {
         counterPreferences = context.getSharedPreferences(context.getString(R.string.counter_preferences), Context.MODE_PRIVATE);
     }
 
+    /**
+     * Returns the user-configured name of a given counter.
+     * @param counter A value of the counter enum, indicating which name to return.
+     * @return The name of the counter if it is set, otherwise null.
+     */
     public String getCounterName(Counter counter)
     {
         int keyId;
@@ -63,22 +106,26 @@ public class CounterHelper {
         return Arrays.stream(counterNames).anyMatch(Objects::isNull) || maximumCounts == 0;
     }
 
-    public void setCounter1Name(String counter1Name)
+    public void setCounterName(Counter counter, String counterName)
     {
+        int keyId;
+        switch (counter)
+        {
+            case Counter1:
+                keyId = R.string.counter_preferences_counter1_key;
+                break;
+            case Counter2:
+                keyId = R.string.counter_preferences_counter2_key;
+                break;
+            case Counter3:
+                keyId = R.string.counter_preferences_counter3_key;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown counter");
+        }
+
         SharedPreferences.Editor editor = counterPreferences.edit();
-        editor.putString(context.getString(R.string.counter_preferences_counter1_key), counter1Name);
-        editor.apply();
-    }
-    public void setCounter2Name(String counter2Name)
-    {
-        SharedPreferences.Editor editor = counterPreferences.edit();
-        editor.putString(context.getString(R.string.counter_preferences_counter2_key), counter2Name);
-        editor.apply();
-    }
-    public void setCounter3Name(String counter3Name)
-    {
-        SharedPreferences.Editor editor = counterPreferences.edit();
-        editor.putString(context.getString(R.string.counter_preferences_counter3_key), counter3Name);
+        editor.putString(context.getString(keyId), counterName);
         editor.apply();
     }
     public void setMaximumCounts(int maximumCounts)
@@ -108,7 +155,6 @@ public class CounterHelper {
         return counterPreferences.getString(context.getString(R.string.counter_preferences_count_history_key), "");
     }
 
-
     /**
      * Obtains the ordered history of all counter presses since the last reset.
      * @return The history as a list of Counter values. Lower indices are older.
@@ -118,21 +164,8 @@ public class CounterHelper {
         // Convert the history string to a stream of integer code points.
         // Cast those to chars, then map each char to one of the counter enum values.
         // Finally, collect those into a list and return it.
-        return getCountHistory().chars().mapToObj(i -> (char)i).map(c -> {
-            switch (c)
-            {
-                case '1':
-                    return CounterHelper.Counter.Counter1;
-                case '2':
-                    return CounterHelper.Counter.Counter2;
-                case '3':
-                    return CounterHelper.Counter.Counter3;
-                default:
-                    throw new IllegalArgumentException("Unknown counter");
-            }
-        }).collect(Collectors.toList());
+        return getCountHistory().chars().mapToObj(i -> (char)i).map(Counter::fromChar).collect(Collectors.toList());
     }
-
 
     /**
      * Obtains the history of all counter presses since the last reset, grouped by counter number.
@@ -155,28 +188,12 @@ public class CounterHelper {
     {
         final String KEY = context.getString(R.string.counter_preferences_count_history_key);
 
-        String toAppend;
-        switch (c)
-        {
-            case Counter1:
-                toAppend = "1";
-                break;
-            case Counter2:
-                toAppend = "2";
-                break;
-            case Counter3:
-                toAppend = "3";
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown counter");
-        }
-
         SharedPreferences.Editor editor = counterPreferences.edit();
         int retVal;
         if (!counterPreferences.contains(KEY))
         {
             // If the count history does not exist, initialize it.
-            editor.putString(KEY, toAppend);
+            editor.putString(KEY, c.toString());
             retVal = 1;
         }
         else
@@ -185,13 +202,13 @@ public class CounterHelper {
             if (currentHistory.length() >= getMaximumCounts())
             {
                 // If the count history does exist but its length exceeds the maximum allowed counts, reset the history.
-                editor.putString(KEY, toAppend);
+                editor.putString(KEY, c.toString());
                 retVal = 1;
             }
             else
             {
                 // Otherwise, append the new event to the end of the history string.
-                editor.putString(KEY, currentHistory + toAppend);
+                editor.putString(KEY, currentHistory + c.toString());
                 retVal = currentHistory.length() + 1;
             }
         }

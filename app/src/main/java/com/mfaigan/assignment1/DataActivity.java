@@ -100,23 +100,31 @@ public class DataActivity extends AppCompatActivity {
             textViewCounter1History.setText(String.format(Locale.ENGLISH,
                     "%s: %d events",
                     counterNames[0],
-                    groupedCounts.get(CounterHelper.Counter.Counter1)));
+                    groupedCounts.getOrDefault(CounterHelper.Counter.Counter1, 0L)));
 
             textViewCounter2History.setText(String.format(Locale.ENGLISH,
                     "%s: %d events",
                     counterNames[1],
-                    groupedCounts.get(CounterHelper.Counter.Counter2)));
+                    groupedCounts.getOrDefault(CounterHelper.Counter.Counter2, 0L)));
 
             textViewCounter3History.setText(String.format(Locale.ENGLISH,
                     "%s: %d events",
                     counterNames[2],
-                    groupedCounts.get(CounterHelper.Counter.Counter3)));
+                    groupedCounts.getOrDefault(CounterHelper.Counter.Counter3, 0L)));
         }
         else
         {
-            textViewCounter1History.setText(String.format(Locale.ENGLISH, "Counter 1: %d events", groupedCounts.get(CounterHelper.Counter.Counter1)));
-            textViewCounter2History.setText(String.format(Locale.ENGLISH, "Counter 2: %d events", groupedCounts.get(CounterHelper.Counter.Counter2)));
-            textViewCounter3History.setText(String.format(Locale.ENGLISH, "Counter 3: %d events", groupedCounts.get(CounterHelper.Counter.Counter3)));
+            textViewCounter1History.setText(String.format(Locale.ENGLISH,
+                    "Counter 1: %d events",
+                    groupedCounts.getOrDefault(CounterHelper.Counter.Counter1, 0L)));
+
+            textViewCounter2History.setText(String.format(Locale.ENGLISH,
+                    "Counter 2: %d events",
+                    groupedCounts.getOrDefault(CounterHelper.Counter.Counter2, 0L)));
+
+            textViewCounter3History.setText(String.format(Locale.ENGLISH,
+                    "Counter 3: %d events",
+                    groupedCounts.getOrDefault(CounterHelper.Counter.Counter3, 0L)));
         }
         textViewAllCountersHistory.setText(String.format(Locale.ENGLISH,"Total events: %d", counterHelper.getCountHistory().length()));
     }

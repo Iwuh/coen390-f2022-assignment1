@@ -143,9 +143,9 @@ public class SettingsActivity extends AppCompatActivity {
     private void storeSettings()
     {
         CounterHelper controller = new CounterHelper(getApplicationContext());
-        controller.setCounter1Name(editTextCounter1Name.getText().toString());
-        controller.setCounter2Name(editTextCounter2Name.getText().toString());
-        controller.setCounter3Name(editTextCounter3Name.getText().toString());
+        controller.setCounterName(CounterHelper.Counter.Counter1, editTextCounter1Name.getText().toString());
+        controller.setCounterName(CounterHelper.Counter.Counter2, editTextCounter2Name.getText().toString());
+        controller.setCounterName(CounterHelper.Counter.Counter3, editTextCounter3Name.getText().toString());
         controller.setMaximumCounts(Integer.parseInt(editTextMaximumCounts.getText().toString()));
     }
 }
