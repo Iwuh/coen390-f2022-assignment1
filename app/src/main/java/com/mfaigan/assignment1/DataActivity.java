@@ -32,6 +32,7 @@ public class DataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
 
+        // Initialize the toolbar for this activity and show the back button.
         setSupportActionBar(findViewById(R.id.toolbarData));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -63,6 +64,8 @@ public class DataActivity extends AppCompatActivity {
         showEventNames = true;
         recyclerViewAdapter.setShowEventNames(true);
         recyclerViewAdapter.notifyDataSetChanged();
+
+        // Additionally, update the textViews to show the most recent count data.
         updateTextViews();
     }
 
@@ -79,8 +82,11 @@ public class DataActivity extends AppCompatActivity {
             // Toggle the event name display in the adapter and update the entire range.
             recyclerViewAdapter.setShowEventNames(!showEventNames);
             recyclerViewAdapter.notifyItemRangeChanged(0, recyclerViewAdapter.getItemCount());
+
             // Store the event name display status for future toggles.
             showEventNames = !showEventNames;
+
+            // Finally, update the text views accordingly.
             updateTextViews();
             return true;
         }
@@ -88,9 +94,11 @@ public class DataActivity extends AppCompatActivity {
     }
 
     private void updateTextViews() {
+        // Get a mapping of counter to number of events, and use it to fill out the textViews.
         Map<CounterHelper.Counter, Long> groupedCounts = counterHelper.getGroupedCountHistory();
         if (showEventNames) {
             String[] counterNames = counterHelper.getAllCounterNames();
+
             textViewCounter1History.setText(String.format(Locale.ENGLISH,
                     "%s: %d events",
                     counterNames[0],
@@ -118,6 +126,7 @@ public class DataActivity extends AppCompatActivity {
                     "Counter 3: %d events",
                     groupedCounts.getOrDefault(CounterHelper.Counter.Counter3, 0L)));
         }
+        // Use the total number of events to fill out the final textView.
         textViewAllCountersHistory.setText(String.format(Locale.ENGLISH, "Total events: %d", counterHelper.getCountHistory().length()));
     }
 }

@@ -18,6 +18,13 @@ public class CounterHelper {
     public enum Counter {
         Counter1, Counter2, Counter3;
 
+
+        /**
+         * Converts a string to an instance of this enum.
+         *
+         * @param s Must be "1", "2", or "3".
+         * @return The corresponding value of Counter1, Counter2, or Counter3.
+         */
         public static Counter fromString(String s) {
             switch (s) {
                 case "1":
@@ -31,10 +38,21 @@ public class CounterHelper {
             }
         }
 
+        /**
+         * Converts a char to an instance of this enum.
+         *
+         * @param c Must be '1', '2', or '3'.
+         * @return The corresponding value of Counter1, Counter2, or Counter3.
+         */
         public static Counter fromChar(char c) {
             return fromString(Character.toString(c));
         }
 
+        /**
+         * Converts an instance of this enum to a corresponding single-character numerical string.
+         *
+         * @return "1", "2", or "3" based on the value of the enum.
+         */
         @NonNull
         @Override
         public String toString() {
@@ -95,9 +113,17 @@ public class CounterHelper {
         String[] counterNames = getAllCounterNames();
         int maximumCounts = getMaximumCounts();
 
+        // The default return values used in getCounterName and getMaximumCounts are null and 0, respectively.
+        // We use this to check whether any of the settings are missing.
         return Arrays.stream(counterNames).anyMatch(Objects::isNull) || maximumCounts == 0;
     }
 
+    /**
+     * Sets the name of a specific counter.
+     *
+     * @param counter     A value of the counter enum, indicating which counter's name to change.
+     * @param counterName The name to store in SharedPreferences.
+     */
     public void setCounterName(Counter counter, String counterName) {
         int keyId;
         switch (counter) {

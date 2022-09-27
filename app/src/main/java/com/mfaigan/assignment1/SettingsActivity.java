@@ -30,6 +30,7 @@ public class SettingsActivity extends AppCompatActivity {
         editTextMaximumCounts = findViewById(R.id.editTextMaximumCounts);
         buttonSave = findViewById(R.id.buttonSave);
 
+        // Initialize the toolbar and enable the back button.
         setSupportActionBar(findViewById(R.id.toolbarSettings));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -50,8 +51,10 @@ public class SettingsActivity extends AppCompatActivity {
 
         CounterHelper controller = new CounterHelper(getApplicationContext());
         if (controller.areSettingsMissing()) {
+            // Enter edit mode immediately if any settings are missing.
             setEditMode(true);
         } else {
+            // Otherwise, display the previous values submitted by the user.
             String[] counterNames = controller.getAllCounterNames();
             editTextCounter1Name.setText(counterNames[0]);
             editTextCounter2Name.setText(counterNames[1]);
@@ -98,7 +101,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     /**
-     * Validates user input in the counter name and maximum counts EditTexts, and displays a toast in the case of invalid input.
+     * Validates user input in the counter name and maximum counts fields, and displays a toast in the case of invalid input.
      *
      * @return True if all four user inputs are valid, otherwise false.
      */

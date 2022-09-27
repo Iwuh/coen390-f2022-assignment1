@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateCount(CounterHelper.Counter c) {
         CounterHelper controller = new CounterHelper(getApplicationContext());
+        // Add the event to the count history and display the returned value for the total counts.
         int newCount = controller.appendToCountHistory(c);
         totalCountDisplay.setText(Integer.toString(newCount));
     }

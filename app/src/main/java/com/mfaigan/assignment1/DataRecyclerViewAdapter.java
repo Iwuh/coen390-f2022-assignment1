@@ -21,6 +21,13 @@ public class DataRecyclerViewAdapter extends RecyclerView.Adapter<DataRecyclerVi
             textViewDataCounterName = itemView.findViewById(R.id.textViewDataCounterName);
         }
 
+        /**
+         * Updates the view bound to this viewHolder.
+         *
+         * @param controller   The controller used to retrieve counter names.
+         * @param counter      A value of counter indicating what event this view represents.
+         * @param useEventName Whether to use the user-supplied event name or the internal event number.
+         */
         public void setData(CounterHelper controller, CounterHelper.Counter counter, boolean useEventName) {
             if (useEventName) {
                 textViewDataCounterName.setText(controller.getCounterName(counter));
