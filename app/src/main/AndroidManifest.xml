@@ -16,7 +16,7 @@
         <activity
             android:name=".DataActivity"
             android:exported="false"
-            android:label="@string/data_activity_title"
+            android:label="@string/title_data_activity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.SettingsActivity">
             <meta-data
@@ -26,7 +26,7 @@
         <activity
             android:name=".SettingsActivity"
             android:exported="false"
-            android:label="@string/settings_activity_title"
+            android:label="@string/title_settings_activity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.SettingsActivity">
             <meta-data

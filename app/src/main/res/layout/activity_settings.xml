@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
-        android:text="@string/save"
+        android:text="@string/label_button_save"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +46,7 @@
             android:id="@+id/textViewCounter1Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/counter1_name_label"
+            android:text="@string/label_counter1_name"
             android:textSize="22sp"
             android:translationX="10dp" />
 
@@ -57,7 +57,7 @@
             android:digits="@string/counter_name_allowed_chars"
             android:ems="10"
             android:enabled="false"
-            android:hint="@string/counter1_name_label"
+            android:hint="@string/label_counter1_name"
             android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
@@ -73,7 +73,7 @@
             android:id="@+id/textViewCounter2Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/counter2_name_label"
+            android:text="@string/label_counter2_name"
             android:textSize="22sp"
             android:translationX="10dp" />
 
@@ -84,7 +84,7 @@
             android:digits="@string/counter_name_allowed_chars"
             android:ems="10"
             android:enabled="false"
-            android:hint="@string/counter2_name_label"
+            android:hint="@string/label_counter2_name"
             android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
@@ -100,7 +100,7 @@
             android:id="@+id/textViewCounter3Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/counter3_name_label"
+            android:text="@string/label_counter3_name"
             android:textSize="22sp"
             android:translationX="10dp" />
 
@@ -111,7 +111,7 @@
             android:digits="@string/counter_name_allowed_chars"
             android:ems="10"
             android:enabled="false"
-            android:hint="@string/counter3_name_label"
+            android:hint="@string/label_counter3_name"
             android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
@@ -127,7 +127,7 @@
             android:id="@+id/textViewMaxCounts"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/maximum_counts_label"
+            android:text="@string/label_maximum_counts"
             android:textSize="22sp"
             android:translationX="10dp" />
 
@@ -137,7 +137,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:enabled="false"
-            android:hint="@string/maximum_counts_label"
+            android:hint="@string/label_maximum_counts"
             android:importantForAutofill="no"
             android:inputType="number"
             android:minHeight="48dp"

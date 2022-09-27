@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
-        android:text="@string/settings"
+        android:text="@string/label_button_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="84dp"
-        android:text="@string/show_counts"
+        android:text="@string/label_button_show_counts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -48,7 +48,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_weight="0"
-            android:text="@string/default_counter1" />
+            android:contentDescription="@string/counter_preferences_maximum_counts_key" />
 
         <View
             android:id="@+id/divider2"
@@ -62,7 +62,7 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_weight="0"
-            android:text="@string/default_counter2" />
+            android:contentDescription="@string/description_counter2" />
 
         <View
             android:id="@+id/divider3"
@@ -76,16 +76,16 @@
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_weight="0"
-            android:text="@string/default_counter3" />
+            android:contentDescription="@string/description_counter3" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textViewTotalCountLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="125dp"
+        android:layout_marginStart="130dp"
         android:layout_marginBottom="45dp"
-        android:text="@string/total_count_label"
+        android:text="@string/label_total_count"
         app:layout_constraintBottom_toTopOf="@+id/buttonShowCounts"
         app:layout_constraintStart_toStartOf="parent" />
 

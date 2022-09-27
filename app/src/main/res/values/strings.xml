@@ -1,23 +1,23 @@
 <resources>
     <!-- Static Labels -->
     <string name="app_name">Assignment1</string>
-    <string name="settings">Settings</string>
-    <string name="save">Save</string>
-    <string name="show_counts">Show My Counts</string>
-    <string name="total_count_label">Total Count:\u0020</string>
-    <string name="settings_activity_title">Settings Activity</string>
-    <string name="data_activity_title">Data Activity</string>
-    <string name="counter1_name_label">Counter 1 Name</string>
-    <string name="counter2_name_label">Counter 2 Name</string>
-    <string name="counter3_name_label">Counter 3 Name</string>
-    <string name="maximum_counts_label">Maximum Counts</string>
-    <string name="action_edit_settings">Edit Settings</string>
-    <string name="action_toggle_event_names">Toggle Event Names</string>
+    <string name="label_button_settings">Settings</string>
+    <string name="label_button_save">Save</string>
+    <string name="label_button_show_counts">Show My Counts</string>
+    <string name="label_total_count">Total Count:\u0020</string>
+    <string name="title_settings_activity">Settings Activity</string>
+    <string name="title_data_activity">Data Activity</string>
+    <string name="label_counter1_name">Counter 1 Name</string>
+    <string name="label_counter2_name">Counter 2 Name</string>
+    <string name="label_counter3_name">Counter 3 Name</string>
+    <string name="label_maximum_counts">Maximum Counts</string>
+    <string name="label_action_edit_settings">Edit Settings</string>
+    <string name="label_action_toggle_event_names">Toggle Event Names</string>
 
-    <!-- Default Values -->
-    <string name="default_counter1">Event A</string>
-    <string name="default_counter2">Event B</string>
-    <string name="default_counter3">Event C</string>
+    <!-- Content Descriptions for Accessibility -->
+    <string name="description_counter1">Counter 1</string>
+    <string name="description_counter2">Counter 2</string>
+    <string name="description_counter3">Counter 3</string>
 
     <!-- SharedPreferences -->
     <string name="counter_preferences">counter_preferences</string>
